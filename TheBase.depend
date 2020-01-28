@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1580181151 source:d:\github\thebase\source\main.c
+	"stdio.h"
+	"../Headers/Vector.h"
+
+1580181378 source:d:\github\thebase\headers\vector.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"vector.h"
+
+1580181444 d:\github\thebase\headers\vector.h
+
