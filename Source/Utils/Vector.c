@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "vector.h"
+#include "Vector.h"
 
 void vector_init(vector *v)
 {

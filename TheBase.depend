@@ -11,3 +11,21 @@
 
 1580181444 d:\github\thebase\headers\vector.h
 
+1580231093 source:/home/caden/Documents/GitHub/TheBase/Source/Main.c
+	"stdio.h"
+	"Utils/Vector.h"
+	"Math/Vec2.h"
+
+1580229498 /home/caden/Documents/GitHub/TheBase/Source/Utils/Vector.h
+
+1580229629 source:/home/caden/Documents/GitHub/TheBase/Source/Utils/Vector.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Vector.h"
+
+1580231432 /home/caden/Documents/GitHub/TheBase/Source/Math/Vec2.h
+
+1580230916 source:/home/caden/Documents/GitHub/TheBase/Source/Math/Vec2.c
+	"Vec2.h"
+
