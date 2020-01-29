@@ -10,11 +10,15 @@ typedef struct _testSt{
 int main()
 {
 
-    Vec2i first = {4, 534};
+    iVector2 first = {4, 534};
 
-    Vec2i second = {5, 755};
+    iVector2 second = {5, 755};
 
-    Vec2i res = Add_Vec2i(first, second);
+    iVector2 res = iVec2::Add(first, second);
+
+    fVector2 tes = iVec2::toFVec2(res);
+
+    printf("Converted: %.6f\n", tes.x);
 
     printf("%d\n", res.x);
     printf("%d\n", res.y);

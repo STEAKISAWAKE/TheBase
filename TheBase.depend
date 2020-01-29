@@ -1,7 +1,8 @@
 # depslib dependency file v1.0
-1580181151 source:d:\github\thebase\source\main.c
+1580243572 source:d:\github\thebase\source\main.c
 	"stdio.h"
-	"../Headers/Vector.h"
+	"Utils/Vector.h"
+	"Math/Vec2.h"
 
 1580181378 source:d:\github\thebase\headers\vector.c
 	<stdio.h>
@@ -28,4 +29,38 @@
 
 1580230916 source:/home/caden/Documents/GitHub/TheBase/Source/Math/Vec2.c
 	"Vec2.h"
+
+1580242361 source:d:\github\thebase\source\utils\vector.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Vector.h"
+
+1580242361 d:\github\thebase\source\utils\vector.h
+
+1580242361 source:d:\github\thebase\source\utils\vector.cpp
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Vector.h"
+
+1580247658 source:d:\github\thebase\source\math\vec2.cpp
+	"Vec2.h"
+
+1580245321 d:\github\thebase\source\math\vec2.h
+
+1580245441 source:d:\github\thebase\source\main.cpp
+	"stdio.h"
+	"Utils/Vector.h"
+	"Math/Vec2.h"
+
+1580259256 source:d:\github\thebase\source\math\vec3.cpp
+	"Vec3.h"
+
+1580260051 d:\github\thebase\source\math\vec3.h
+
+1580249096 source:d:\github\thebase\source\math\vec4.cpp
+	"Vec4.h"
+
+1580250265 d:\github\thebase\source\math\vec4.h
 
