@@ -5,7 +5,7 @@
 		<Option title="TheBase" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="Utils\;Math\;" />
+		<Option virtualFolders="Utils/;Math/;" />
 		<Build>
 			<Target title="Debug">
 				<Option output="bin/Debug/TheBase" prefix_auto="1" extension_auto="1" />
@@ -35,6 +35,12 @@
 			<Add option="-std=c++11" />
 		</Compiler>
 		<Unit filename="Source/Main.cpp" />
+		<Unit filename="Source/Math/Mat4.cpp">
+			<Option virtualFolder="Math/" />
+		</Unit>
+		<Unit filename="Source/Math/Mat4.h">
+			<Option virtualFolder="Math/" />
+		</Unit>
 		<Unit filename="Source/Math/Vec2.cpp">
 			<Option virtualFolder="Math/" />
 		</Unit>
@@ -53,8 +59,8 @@
 		<Unit filename="Source/Math/Vec4.h">
 			<Option virtualFolder="Math/" />
 		</Unit>
-		<Unit filename="Source/Utils/Vector.cpp">
-			<Option virtualFolder="Utils/" />
+		<Unit filename="Source/Utils/Vector.c">
+			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Source/Utils/Vector.h">
 			<Option virtualFolder="Utils/" />

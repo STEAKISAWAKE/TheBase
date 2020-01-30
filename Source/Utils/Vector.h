@@ -22,7 +22,7 @@ void vector_add(vector*, void*);
 void vector_set(vector*, int, void*);
 
 //Returns a vector element.
-void *vector_get(vector*, int);
+void* vector_get(vector*, int);
 
 //Erases a single element from the index provided.
 void vector_erase(vector*, int);
