@@ -1,5 +1,7 @@
 #include "Vec3.h"
 
+#include <cmath>
+
 ///IVECTOR2///
 iVector3 iVec3::Add(iVector3 first, iVector3 second)
 {
@@ -51,6 +53,12 @@ iVector3 iVec3::Div(iVector3 first, iVector3 second)
 
     return out;
 
+}
+
+iVector3 iVec3::Normalize(iVector3 v)
+{
+    float length_of_v = sqrt((v.x * v.x) + (v.y * v.y) + (v.z * v.z));
+    return iVector3 {v.x / length_of_v, v.y / length_of_v, v.z / length_of_v};
 }
 
 bool iVec3::isEqual(iVector3 first, iVector3 second)
@@ -117,6 +125,13 @@ fVector3 fVec3::Div(fVector3 first, fVector3 second)
 
     return out;
 }
+
+fVector3 fVec3::Normalize(fVector3 v)
+{
+    float length_of_v = sqrt((v.x * v.x) + (v.y * v.y) + (v.z * v.z));
+    return fVector3 {v.x / length_of_v, v.y / length_of_v, v.z / length_of_v};
+}
+
 bool fVec3::isEqual(fVector3 first, fVector3 second)
 {
 

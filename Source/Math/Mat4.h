@@ -5,13 +5,13 @@
 
 typedef struct fMatrix4_
 {
-    float[4][4] Entries;
+    float Entries[4][4];
 } fMatrix4;
 
 namespace fMat4
 {
     //Returns a basic fMat4 with these settings
-    fMatrix4 Basic(fVec3 pos, fVec3 rot, fVec3 scl);
+    fMatrix4 Init(fVector3 pos, fVector3 rot, fVector3 scl);
 
 
     //Types of views
@@ -20,23 +20,24 @@ namespace fMat4
     fMatrix4 PerspectiveMultiFov(float FovX, float FovY, float ZNear, float ZFar);
     fMatrix4 Orthogonal(float Width, float Height, float ZNear, float ZFar);
 
+    fMatrix4 Identity();
 
     //Transformations
-    fMatrix4 Translation(fMatrix4& mat, fVec3& Pos);
-    fMatrix4 Scale(fMatrix4& mat, fVec3& ScaleFactors);
-    fMatrix4 Rotation(fMatrix4& mat, fVec3& Axis, float Angle);
-    fMatrix4 RotationEuclid(fMatrix4& mat, fVec3& euclidRot);
+    fMatrix4 Translation(fVector3 Pos);
+    fMatrix4 Scale(fVector3 ScaleFactors);
+    fMatrix4 Rotation(fVector3 Axis, float Angle);
+    fMatrix4 RotationEuclid(fVector3 euclidRot);
 
-    fMatrix4 RotationX(fMatrix4& mat, float Theta);
-    fMatrix4 RotationY(fMatrix4& mat, float Theta);
-    fMatrix4 RotationZ(fMatrix4& mat, float Theta);
+    fMatrix4 RotationX(float Theta);
+    fMatrix4 RotationY(float Theta);
+    fMatrix4 RotationZ(float Theta);
 
 
 
-    fMatrix4 Add(fMatrix4&, fMatrix4&);
-    fMatrix4 Sub(fMatrix4&, fMatrix4&);
-    fMatrix4 Mul(fMatrix4&, fMatrix4&);
-    fMatrix4 Div(fMatrix4&, fMatrix4&);
+    fMatrix4 Add(fMatrix4, fMatrix4);
+    fMatrix4 Sub(fMatrix4, fMatrix4);
+    fMatrix4 Mul(fMatrix4 Left, fMatrix4 Right);
+    fMatrix4 MulFloat(float, fMatrix4);
 }
 
 

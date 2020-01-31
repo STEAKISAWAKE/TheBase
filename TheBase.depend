@@ -30,13 +30,13 @@
 1580230916 source:/home/caden/Documents/GitHub/TheBase/Source/Math/Vec2.c
 	"Vec2.h"
 
-1580242361 source:d:\github\thebase\source\utils\vector.c
+1580423119 source:d:\github\thebase\source\utils\vector.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"Vector.h"
 
-1580242361 d:\github\thebase\source\utils\vector.h
+1580423119 d:\github\thebase\source\utils\vector.h
 
 1580242361 source:d:\github\thebase\source\utils\vector.cpp
 	<stdio.h>
@@ -54,10 +54,11 @@
 	"Utils/Vector.h"
 	"Math/Vec2.h"
 
-1580259256 source:d:\github\thebase\source\math\vec3.cpp
+1580427073 source:d:\github\thebase\source\math\vec3.cpp
 	"Vec3.h"
+	<cmath>
 
-1580260051 d:\github\thebase\source\math\vec3.h
+1580426951 d:\github\thebase\source\math\vec3.h
 
 1580249096 source:d:\github\thebase\source\math\vec4.cpp
 	"Vec4.h"
@@ -83,4 +84,11 @@
 	"Vec4.h"
 
 1580303697 /home/caden/Documents/GitHub/TheBase/Source/Math/Vec4.h
+
+1580434712 source:d:\github\thebase\source\math\mat4.cpp
+	"Mat4.h"
+	<cmath>
+
+1580434714 d:\github\thebase\source\math\mat4.h
+	"Vec3.h"
 

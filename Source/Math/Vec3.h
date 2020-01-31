@@ -28,6 +28,8 @@ namespace iVec3
     iVector3 Mul(iVector3, iVector3); // Multiply
     iVector3 Div(iVector3, iVector3); // Divide
 
+    iVector3 Normalize(iVector3);
+
     bool isEqual(iVector3, iVector3); // Gets if first is equal to second
 
     fVector3 toFVec3(iVector3);
@@ -39,6 +41,8 @@ namespace fVec3
     fVector3 Sub(fVector3, fVector3); // Subtract
     fVector3 Mul(fVector3, fVector3); // Multiply
     fVector3 Div(fVector3, fVector3); // Divide
+
+    fVector3 Normalize(fVector3);
 
     bool isEqual(fVector3, fVector3); // Gets if first is equal to second
 
