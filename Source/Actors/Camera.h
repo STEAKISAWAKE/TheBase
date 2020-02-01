@@ -1,11 +1,11 @@
 #ifndef CAMERA_INCLUDED
 #define CAMERA_INCLUDED
 
-#include "../Math/Mat4.h"
+#include "Actor.h"
 
 typedef struct _Camera
 {
-    fMatrix4 View; // Position of the camera
+    fMatrix4 View;
     fMatrix4 Projection; // Type of view the camera has (Perspective, Orthogonal)
 
     float FOV;

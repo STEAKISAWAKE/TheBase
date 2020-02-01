@@ -49,12 +49,13 @@
 
 1580245321 d:\github\thebase\source\math\vec2.h
 
-1580245441 source:d:\github\thebase\source\main.cpp
+1580516352 source:d:\github\thebase\source\main.cpp
 	"stdio.h"
 	"Utils/Vector.h"
 	"Math/Vec2.h"
+	"Math/Mat4.h"
 
-1580427073 source:d:\github\thebase\source\math\vec3.cpp
+1580516352 source:d:\github\thebase\source\math\vec3.cpp
 	"Vec3.h"
 	<cmath>
 
@@ -89,12 +90,13 @@
 
 1580303697 /home/caden/Documents/GitHub/TheBase/Source/Math/Vec4.h
 
-1580434712 source:d:\github\thebase\source\math\mat4.cpp
+1580516352 source:d:\github\thebase\source\math\mat4.cpp
 	"Mat4.h"
 	<cmath>
 
-1580434714 d:\github\thebase\source\math\mat4.h
+1580516352 d:\github\thebase\source\math\mat4.h
 	"Vec3.h"
+	"Vec4.h"
 
 1580479604 /home/caden/Documents/GitHub/TheBase/Source/Math/Mat4.h
 	"Vec3.h"
@@ -105,4 +107,25 @@
 
 1580482361 /home/caden/Documents/GitHub/TheBase/Source/Actors/Camera.h
 	"../Math/Mat4.h"
+
+1580516352 source:d:\github\thebase\source\actors\camera.cpp
+	"Camera.h"
+
+1580525117 d:\github\thebase\source\actors\camera.h
+	"Actor.h"
+
+1580525202 d:\github\thebase\source\actors\actor.h
+	"../Math/Mat4.h"
+
+1580571330 source:d:\github\thebase\source\visuals\mesh.cpp
+	"Mesh.h"
+	<stdio.h>
+	<stdlib.h>
+	<assert.h>
+	<stdlib.h>
+
+1580571092 d:\github\thebase\source\visuals\mesh.h
+	"../Utils/Vector.h"
+	"../Math/Vec3.h"
+	"../Math/Vec2.h"
 

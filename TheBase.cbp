@@ -5,25 +5,59 @@
 		<Option title="TheBase" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="Utils/;Math/;Actors/;" />
+		<Option virtualFolders="Utils\;Math\;Actors\;Visuals\;" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/TheBase" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Debug/" />
+				<Option platforms="Unix;" />
+				<Option output="bin/DebugUnix/TheBase" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/DebugUnix/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-std=c++11" />
 					<Add option="-g" />
 				</Compiler>
+				<Linker>
+					<Add option="-lmingw32 -lopengl32" />
+				</Linker>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/TheBase" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Release/" />
+				<Option platforms="Unix;" />
+				<Option output="bin/ReleaseUnix/TheBase" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/ReleaseUnix/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+			<Target title="Debug Windows">
+				<Option platforms="Windows;" />
+				<Option output="bin/DebugWindows/TheBase" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/DebugWindows/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-std=c++11" />
+					<Add option="-g" />
+					<Add option="-DPLATFORM_WINDOWS" />
+				</Compiler>
+				<Linker>
+					<Add option="-lmingw32 -lopengl32" />
+				</Linker>
+			</Target>
+			<Target title="Release Windows">
+				<Option platforms="Windows;" />
+				<Option output="bin/ReleaseWindows/TheBase" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/ReleaseWindows/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-DPLATFORM_WINDOWS" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -34,6 +68,9 @@
 			<Add option="-Wall" />
 			<Add option="-std=c++11" />
 		</Compiler>
+		<Unit filename="Source/Actors/Actor.h">
+			<Option virtualFolder="Actors/" />
+		</Unit>
 		<Unit filename="Source/Actors/Camera.cpp">
 			<Option virtualFolder="Actors/" />
 		</Unit>
@@ -72,8 +109,19 @@
 		<Unit filename="Source/Utils/Vector.h">
 			<Option virtualFolder="Utils/" />
 		</Unit>
-		<Unit filename="Source/Visuals/OpenGLRender.h" />
-		<Unit filename="Source/Visuals/Render.h" />
+		<Unit filename="Source/Visuals/Mesh.cpp">
+			<Option virtualFolder="Visuals/" />
+		</Unit>
+		<Unit filename="Source/Visuals/Mesh.h">
+			<Option virtualFolder="Visuals/" />
+		</Unit>
+		<Unit filename="Source/Visuals/OpenGLRender.h">
+			<Option virtualFolder="Visuals/" />
+		</Unit>
+		<Unit filename="Source/Visuals/Render.h">
+			<Option virtualFolder="Visuals/" />
+		</Unit>
+		<Unit filename="Source/Visuals/Window.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
