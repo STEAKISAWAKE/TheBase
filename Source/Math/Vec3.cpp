@@ -57,7 +57,7 @@ iVector3 iVec3::Div(iVector3 first, iVector3 second)
 
 iVector3 iVec3::Normalize(iVector3 v)
 {
-    float length_of_v = sqrt((v.x * v.x) + (v.y * v.y) + (v.z * v.z));
+    int length_of_v = sqrt((v.x * v.x) + (v.y * v.y) + (v.z * v.z));
     return iVector3 {v.x / length_of_v, v.y / length_of_v, v.z / length_of_v};
 }
 

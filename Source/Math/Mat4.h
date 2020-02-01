@@ -2,6 +2,7 @@
 #define MAT4_H_INCLUDED
 
 #include "Vec3.h"
+#include "Vec4.h"
 
 typedef struct fMatrix4_
 {
@@ -37,6 +38,7 @@ namespace fMat4
     fMatrix4 Add(fMatrix4, fMatrix4);
     fMatrix4 Sub(fMatrix4, fMatrix4);
     fMatrix4 Mul(fMatrix4 Left, fMatrix4 Right);
+    fMatrix4 MulVector4(fMatrix4 Left, fVector4 Right);
     fMatrix4 MulFloat(float, fMatrix4);
 }
 

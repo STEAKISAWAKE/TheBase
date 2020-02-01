@@ -35,7 +35,7 @@ fMatrix4 fMat4::Perspective(float Width, float Height, float ZNear, float ZFar)
     Result.Entries[2][2] = ZFar / (ZNear - ZFar);
     Result.Entries[3][2] = ZFar * ZNear / (ZNear - ZFar);
 
-    Result.Entries[0][3] = 0.0f;Mul(
+    Result.Entries[0][3] = 0.0f;
     Result.Entries[1][3] = 0.0f;
     Result.Entries[2][3] = -1.0f;
     Result.Entries[3][3] = 0.0f;
@@ -176,7 +176,7 @@ fMatrix4 fMat4::Scale(fVector3 ScaleFactors)
     Result.Entries[2][0] = 0.0f;
     Result.Entries[3][0] = 0.0f;
 
-    Result.Entries[0][1] = 0.0f;Mul(
+    Result.Entries[0][1] = 0.0f;
     Result.Entries[1][1] = ScaleFactors.y;
     Result.Entries[2][1] = 0.0f;
     Result.Entries[3][1] = 0.0f;
@@ -320,6 +320,39 @@ fMatrix4 fMat4::Mul(fMatrix4 Left, fMatrix4 Right)
             Result.Entries[i][i2] = Total;
         }
     }
+    return Result;
+}
+
+fMatrix4 fMat4::MulVector4(fMatrix4 Left, fVector4 Right)
+{
+    fMatrix4 Result;
+
+    for(unsigned int i = 0; i < 4; i++)
+    {
+        for(unsigned int i2 = 0; i2 < 4; i2++)
+        {
+            if(i == 1)
+            {
+                Left.Entries[i][i2] = Left.Entries[i][i2] * Right.x;
+            }
+
+            if(i == 2)
+            {
+                Left.Entries[i][i2] = Left.Entries[i][i2] * Right.y;
+            }
+
+            if(i == 3)
+            {
+                Left.Entries[i][i2] = Left.Entries[i][i2] * Right.z;
+            }
+
+            if(i == 4)
+            {
+                Left.Entries[i][i2] = Left.Entries[i][i2] * Right.w;
+            }
+        }
+    }
+
     return Result;
 }
 
