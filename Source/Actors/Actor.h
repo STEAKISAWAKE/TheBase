@@ -3,16 +3,21 @@
 
 #include "../Math/Mat4.h"
 
-typedef struct _Actor
+struct _Actor
 {
+    int ActorID;
+
     fMatrix4 Transform;
 
-    int ActorID;
-    void (*Construct)( _Actor *self );
-    void (*Init)( _Actor *self );
-    void (*Update)( _Actor  *self );
-    void (*Draw)( _Actor  *self );
-    void (*Destroy)( _Actor  *self );
-} Actor;
+    void (*OnConstruct) ( struct _Actor* self );
+    void (*OnBeginPlay) ( struct _Actor* self );
+    void (*OnUpdate)    ( struct _Actor* self );
+    void (*OnDraw)      ( struct _Actor* self );
+    void (*OnEndPlay)   ( struct _Actor* self);
+    void (*OnDestruct)  ( struct _Actor* self );
+
+};
+
+typedef struct _Actor Actor;
 
 #endif // ACTOR_H_INCLUDED

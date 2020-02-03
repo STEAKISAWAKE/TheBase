@@ -1,6 +1,8 @@
 #ifndef VEC3_H_INCLUDED
 #define VEC3_H_INCLUDED
 
+#include <stdbool.h>
+
 //Intiger Vector2
 typedef struct iVector3_
 {
@@ -21,33 +23,30 @@ typedef struct fVector3_
 
 } fVector3;
 
-namespace iVec3
-{
-    iVector3 Add(iVector3, iVector3); // Addition
-    iVector3 Sub(iVector3, iVector3); // Subtract
-    iVector3 Mul(iVector3, iVector3); // Multiply
-    iVector3 Div(iVector3, iVector3); // Divide
+// iVec3 //////////////////////////////////////////////////
+    iVector3 iVec3_Add(iVector3, iVector3); // Addition
+    iVector3 iVec3_Sub(iVector3, iVector3); // Subtract
+    iVector3 iVec3_Mul(iVector3, iVector3); // Multiply
+    iVector3 iVec3_Div(iVector3, iVector3); // Divide
 
-    iVector3 Normalize(iVector3);
+    iVector3 iVec3_Normalize(iVector3);
 
-    bool isEqual(iVector3, iVector3); // Gets if first is equal to second
+    bool iVec3_isEqual(iVector3, iVector3); // Gets if first is equal to second
 
-    fVector3 toFVec3(iVector3);
-}
+    fVector3 iVec3_toFVec3(iVector3);
 
-namespace fVec3
-{
-    fVector3 Add(fVector3, fVector3); // Addition
-    fVector3 Sub(fVector3, fVector3); // Subtract
-    fVector3 Mul(fVector3, fVector3); // Multiply
-    fVector3 Div(fVector3, fVector3); // Divide
 
-    fVector3 Normalize(fVector3);
+// fVec3 //////////////////////////////////////////////////
+    fVector3 fVec3_Add(fVector3, fVector3); // Addition
+    fVector3 fVec3_Sub(fVector3, fVector3); // Subtract
+    fVector3 fVec3_Mul(fVector3, fVector3); // Multiply
+    fVector3 fVec3_Div(fVector3, fVector3); // Divide
 
-    bool isEqual(fVector3, fVector3); // Gets if first is equal to second
+    fVector3 fVec3_Normalize(fVector3);
 
-    iVector3 toIVec3(fVector3);
-}
+    bool fVec3_isEqual(fVector3, fVector3); // Gets if first is equal to second
+
+    iVector3 fVec3_toIVec3(fVector3);
 
 
 #endif // VEC3_H_INCLUDED

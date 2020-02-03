@@ -5,7 +5,7 @@
 		<Option title="TheBase" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="Utils\;Math\;Actors\;Visuals\;" />
+		<Option virtualFolders="Utils/;Math/;Actors/;Visuals/;" />
 		<Build>
 			<Target title="Debug">
 				<Option platforms="Unix;" />
@@ -18,7 +18,7 @@
 					<Add option="-g" />
 				</Compiler>
 				<Linker>
-					<Add option="-lmingw32 -lopengl32" />
+					<Add library="GL" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -71,32 +71,17 @@
 		<Unit filename="Source/Actors/Actor.h">
 			<Option virtualFolder="Actors/" />
 		</Unit>
-		<Unit filename="Source/Actors/Camera.cpp">
-			<Option virtualFolder="Actors/" />
-		</Unit>
 		<Unit filename="Source/Actors/Camera.h">
 			<Option virtualFolder="Actors/" />
 		</Unit>
-		<Unit filename="Source/Main.cpp" />
-		<Unit filename="Source/Math/Mat4.cpp">
-			<Option virtualFolder="Math/" />
-		</Unit>
+		<Unit filename="Source/Game/World.h" />
 		<Unit filename="Source/Math/Mat4.h">
-			<Option virtualFolder="Math/" />
-		</Unit>
-		<Unit filename="Source/Math/Vec2.cpp">
 			<Option virtualFolder="Math/" />
 		</Unit>
 		<Unit filename="Source/Math/Vec2.h">
 			<Option virtualFolder="Math/" />
 		</Unit>
-		<Unit filename="Source/Math/Vec3.cpp">
-			<Option virtualFolder="Math/" />
-		</Unit>
 		<Unit filename="Source/Math/Vec3.h">
-			<Option virtualFolder="Math/" />
-		</Unit>
-		<Unit filename="Source/Math/Vec4.cpp">
 			<Option virtualFolder="Math/" />
 		</Unit>
 		<Unit filename="Source/Math/Vec4.h">
@@ -109,9 +94,6 @@
 		<Unit filename="Source/Utils/Vector.h">
 			<Option virtualFolder="Utils/" />
 		</Unit>
-		<Unit filename="Source/Visuals/Mesh.cpp">
-			<Option virtualFolder="Visuals/" />
-		</Unit>
 		<Unit filename="Source/Visuals/Mesh.h">
 			<Option virtualFolder="Visuals/" />
 		</Unit>
@@ -121,7 +103,9 @@
 		<Unit filename="Source/Visuals/Render.h">
 			<Option virtualFolder="Visuals/" />
 		</Unit>
-		<Unit filename="Source/Visuals/Window.h" />
+		<Unit filename="Source/Visuals/Window.h">
+			<Option virtualFolder="Visuals/" />
+		</Unit>
 		<Extensions>
 			<code_completion />
 			<envvars />

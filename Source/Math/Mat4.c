@@ -3,7 +3,7 @@
 #include <cmath>
 
 //Returns a basic fMat4 with these settings
-fMatrix4 fMat4::Init(fVector3 pos, fVector3 rot, fVector3 scl)
+fMatrix4 fMat4_Init(fVector3 pos, fVector3 rot, fVector3 scl)
 {
     fMatrix4 Result;
     Result = Identity();
@@ -17,7 +17,7 @@ fMatrix4 fMat4::Init(fVector3 pos, fVector3 rot, fVector3 scl)
 
 
 //Types of views
-fMatrix4 fMat4::Perspective(float Width, float Height, float ZNear, float ZFar)
+fMatrix4 fMat4_Perspective(float Width, float Height, float ZNear, float ZFar)
 {
     fMatrix4 Result;
     Result.Entries[0][0] = 2.0f * ZNear / Width;
@@ -42,7 +42,7 @@ fMatrix4 fMat4::Perspective(float Width, float Height, float ZNear, float ZFar)
     return Result;
 }
 
-fMatrix4 fMat4::PerspectiveFov(float FOV, float Aspect, float ZNear, float ZFar)
+fMatrix4 fMat4_PerspectiveFov(float FOV, float Aspect, float ZNear, float ZFar)
 {
     float Width = 1.0f / tanf(FOV/2.0f), Height = Aspect / tanf(FOV/2.0f);
 
@@ -69,7 +69,7 @@ fMatrix4 fMat4::PerspectiveFov(float FOV, float Aspect, float ZNear, float ZFar)
     return Result;
 }
 
-fMatrix4 fMat4::PerspectiveMultiFov(float FovX, float FovY, float ZNear, float ZFar)
+fMatrix4 fMat4_PerspectiveMultiFov(float FovX, float FovY, float ZNear, float ZFar)
 {
     float Width = 1.0f / tanf(FovX / 2.0f), Height = 1.0f / tanf(FovY / 2.0f);
 
@@ -96,7 +96,7 @@ fMatrix4 fMat4::PerspectiveMultiFov(float FovX, float FovY, float ZNear, float Z
     return Result;
 }
 
-fMatrix4 fMat4::Orthogonal(float Width, float Height, float ZNear, float ZFar)
+fMatrix4 fMat4_Orthogonal(float Width, float Height, float ZNear, float ZFar)
 {
     fMatrix4 Result;
     Result.Entries[0][0] = 2.0f / Width;
@@ -121,7 +121,7 @@ fMatrix4 fMat4::Orthogonal(float Width, float Height, float ZNear, float ZFar)
     return Result;
 }
 
-fMatrix4 fMat4::Identity()
+fMatrix4 fMat4_Identity()
 {
     fMatrix4 Result;
 
@@ -143,7 +143,7 @@ fMatrix4 fMat4::Identity()
 }
 
 //Transformations
-fMatrix4 fMat4::Translation(fVector3 Pos)
+fMatrix4 fMat4_Translation(fVector3 Pos)
 {
     fMatrix4 Result;
     Result.Entries[0][0] = 1.0f;
@@ -168,7 +168,7 @@ fMatrix4 fMat4::Translation(fVector3 Pos)
     return Result;
 }
 
-fMatrix4 fMat4::Scale(fVector3 ScaleFactors)
+fMatrix4 fMat4_Scale(fVector3 ScaleFactors)
 {
     fMatrix4 Result;
     Result.Entries[0][0] = ScaleFactors.x;
@@ -193,13 +193,13 @@ fMatrix4 fMat4::Scale(fVector3 ScaleFactors)
     return Result;
 }
 
-fMatrix4 fMat4::Rotation(fVector3 Axis, float Angle)
+fMatrix4 fMat4_Rotation(fVector3 Axis, float Angle)
 {
     float c = cosf(Angle);
     float s = sinf(Angle);
     float t = 1.0f - c;
 
-    fVector3 NormalizedAxis = fVec3::Normalize(Axis);
+    fVector3 NormalizedAxis = fVec3_Normalize(Axis);
     float x = NormalizedAxis.x;
     float y = NormalizedAxis.y;
     float z = NormalizedAxis.z;
@@ -227,7 +227,7 @@ fMatrix4 fMat4::Rotation(fVector3 Axis, float Angle)
     return Result;
 }
 
-fMatrix4 fMat4::RotationEuclid(fVector3 euclidRot)
+fMatrix4 fMat4_RotationEuclid(fVector3 euclidRot)
 {
     return Mul(
                Mul(
@@ -237,7 +237,7 @@ fMatrix4 fMat4::RotationEuclid(fVector3 euclidRot)
                );
 }
 
-fMatrix4 fMat4::RotationX(float Theta)
+fMatrix4 fMat4_RotationX(float Theta)
 {
     float CosT = cosf(Theta);
     float SinT = sinf(Theta);
@@ -250,7 +250,7 @@ fMatrix4 fMat4::RotationX(float Theta)
     return Result;
 }
 
-fMatrix4 fMat4::RotationY(float Theta)
+fMatrix4 fMat4_RotationY(float Theta)
 {
     float CosT = cosf(Theta);
     float SinT = sinf(Theta);
@@ -263,7 +263,7 @@ fMatrix4 fMat4::RotationY(float Theta)
     return Result;
 }
 
-fMatrix4 fMat4::RotationZ(float Theta)
+fMatrix4 fMat4_RotationZ(float Theta)
 {
     float CosT = cosf(Theta);
     float SinT = sinf(Theta);
@@ -278,7 +278,7 @@ fMatrix4 fMat4::RotationZ(float Theta)
 
 
 
-fMatrix4 fMat4::Add(fMatrix4 Left, fMatrix4 Right)
+fMatrix4 fMat4_Add(fMatrix4 Left, fMatrix4 Right)
 {
 
     fMatrix4 Result;
@@ -292,7 +292,7 @@ fMatrix4 fMat4::Add(fMatrix4 Left, fMatrix4 Right)
     return Result;
 }
 
-fMatrix4 fMat4::Sub(fMatrix4 Left, fMatrix4 Right)
+fMatrix4 fMat4_Sub(fMatrix4 Left, fMatrix4 Right)
 {
     fMatrix4 Result;
     for(unsigned int i = 0; i < 4; i++)
@@ -305,7 +305,7 @@ fMatrix4 fMat4::Sub(fMatrix4 Left, fMatrix4 Right)
     return Result;
 }
 
-fMatrix4 fMat4::Mul(fMatrix4 Left, fMatrix4 Right)
+fMatrix4 fMat4_Mul(fMatrix4 Left, fMatrix4 Right)
 {
     fMatrix4 Result;
     for(unsigned int i = 0; i < 4; i++)
@@ -323,7 +323,7 @@ fMatrix4 fMat4::Mul(fMatrix4 Left, fMatrix4 Right)
     return Result;
 }
 
-fMatrix4 fMat4::MulVector4(fMatrix4 Left, fVector4 Right)
+fMatrix4 fMat4_MulVector4(fMatrix4 Left, fVector4 Right)
 {
     fMatrix4 Result;
 
@@ -356,7 +356,7 @@ fMatrix4 fMat4::MulVector4(fMatrix4 Left, fVector4 Right)
     return Result;
 }
 
-fMatrix4 fMat4::MulFloat(float Left, fMatrix4 Right)
+fMatrix4 fMat4_MulFloat(float Left, fMatrix4 Right)
 {
     fMatrix4 Result;
     for(unsigned int i = 0; i < 4; i++)

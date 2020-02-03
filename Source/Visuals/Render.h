@@ -6,9 +6,7 @@
 #define USING_DIRECTX
 
 #ifdef PLATFORM_WINDOWS
-    #ifdef USING_DIRECTX
-        #include <DirectXIncludes>
-    #elifdef USING_VULKAN
+    #ifdef USING_VULKAN
         #include <VulkanIncludes>
     #else
         #include <OpenGLRender.h>
@@ -16,7 +14,7 @@
 #endif // PLATFORM_WINDOWS
 
 
-#ifdef PLATFORM_LINUX
+#ifdef PLATFORM_UNIX
     #ifdef USING_VULKAN
         #include <VulkanIncludes>
     #else
@@ -32,8 +30,7 @@
 enum RenderAPI
 {
     OpenGL = 0,
-    DirectX = 1,
-    Vulkan = 2
+    Vulkan = 1
 }
 
 typedef struct _Render
