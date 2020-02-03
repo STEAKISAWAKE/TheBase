@@ -1,7 +1,7 @@
 # TheBase
 The base code for any project.
 
-Features
+Features:
 
 * Functional Programming (The entire codebase is functional)
 * Fast Development (TheBase will speed up development time)
