@@ -9,17 +9,16 @@ typedef struct fMatrix4_
     float Entries[4][4];
 } fMatrix4;
 
-    //Returns a basic fMat4 with these settings
-    fMatrix4 fMat4_Init(fVector3 pos, fVector3 rot, fVector3 scl);
-
-
-    //Types of views
-    fMatrix4 fMat4_Perspective(float Width, float Height, float ZNear, float ZFar);
-    fMatrix4 fMat4_PerspectiveFov(float FOV, float Aspect, float ZNear, float ZFar);
-    fMatrix4 fMat4_PerspectiveMultiFov(float FovX, float FovY, float ZNear, float ZFar);
-    fMatrix4 fMat4_Orthogonal(float Width, float Height, float ZNear, float ZFar);
 
     fMatrix4 fMat4_Identity();
+	
+
+    fMatrix4 fMat4_Add(fMatrix4, fMatrix4);
+    fMatrix4 fMat4_Sub(fMatrix4, fMatrix4);
+    fMatrix4 fMat4_Mul(fMatrix4 Left, fMatrix4 Right);
+    fMatrix4 fMat4_MulVector4(fMatrix4 Left, fVector4 Right);
+    fMatrix4 fMat4_MulFloat(float, fMatrix4);
+
 
     //Transformations
     fMatrix4 fMat4_Translation(fVector3 Pos);
@@ -31,13 +30,19 @@ typedef struct fMatrix4_
     fMatrix4 fMat4_RotationY(float Theta);
     fMatrix4 fMat4_RotationZ(float Theta);
 
+    //Types of views
+    fMatrix4 fMat4_Perspective(float Width, float Height, float ZNear, float ZFar);
+    fMatrix4 fMat4_PerspectiveFov(float FOV, float Aspect, float ZNear, float ZFar);
+    fMatrix4 fMat4_PerspectiveMultiFov(float FovX, float FovY, float ZNear, float ZFar);
+    fMatrix4 fMat4_Orthogonal(float Width, float Height, float ZNear, float ZFar);
 
 
-    fMatrix4 fMat4_Add(fMatrix4, fMatrix4);
-    fMatrix4 fMat4_Sub(fMatrix4, fMatrix4);
-    fMatrix4 fMat4_Mul(fMatrix4 Left, fMatrix4 Right);
-    fMatrix4 fMat4_MulVector4(fMatrix4 Left, fVector4 Right);
-    fMatrix4 fMat4_MulFloat(float, fMatrix4);
+
+    //Returns a basic fMat4 with these settings
+    fMatrix4 fMat4_Init(fVector3 pos, fVector3 rot, fVector3 scl);
+
+
+
 
 
 #endif // MAT4_H_INCLUDED

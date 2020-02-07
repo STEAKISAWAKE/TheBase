@@ -1,16 +1,16 @@
 #include "Mat4.h"
 
-#include <cmath>
+#include <math.h>
 
 //Returns a basic fMat4 with these settings
 fMatrix4 fMat4_Init(fVector3 pos, fVector3 rot, fVector3 scl)
 {
     fMatrix4 Result;
-    Result = Identity();
+    Result = fMat4_Identity();
 
-    Result = Add(Result, Translation(pos));
-    Result = Add(Result, RotationEuclid(rot));
-    Result = Add(Result, Scale(scl));
+    Result = fMat4_Add(Result, fMat4_Translation(pos));
+    Result = fMat4_Add(Result, fMat4_RotationEuclid(rot));
+    Result = fMat4_Add(Result, fMat4_Scale(scl));
 
     return Result;
 }
@@ -229,11 +229,11 @@ fMatrix4 fMat4_Rotation(fVector3 Axis, float Angle)
 
 fMatrix4 fMat4_RotationEuclid(fVector3 euclidRot)
 {
-    return Mul(
-               Mul(
-                   RotationY(euclidRot.y),
-                   RotationX(euclidRot.x)),
-               RotationZ(euclidRot.z)
+    return fMat4_Mul(
+               fMat4_Mul(
+                   fMat4_RotationY(euclidRot.y),
+                   fMat4_RotationX(euclidRot.x)),
+               fMat4_RotationZ(euclidRot.z)
                );
 }
 
@@ -242,7 +242,7 @@ fMatrix4 fMat4_RotationX(float Theta)
     float CosT = cosf(Theta);
     float SinT = sinf(Theta);
 
-    fMatrix4 Result = Identity();
+    fMatrix4 Result = fMat4_Identity();
     Result.Entries[1][1] = CosT;
     Result.Entries[1][2] = SinT;
     Result.Entries[2][1] = -SinT;
@@ -255,7 +255,7 @@ fMatrix4 fMat4_RotationY(float Theta)
     float CosT = cosf(Theta);
     float SinT = sinf(Theta);
 
-    fMatrix4 Result = Identity();
+    fMatrix4 Result = fMat4_Identity();
     Result.Entries[0][0] = CosT;
     Result.Entries[0][2] = SinT;
     Result.Entries[2][0] = -SinT;
@@ -268,7 +268,7 @@ fMatrix4 fMat4_RotationZ(float Theta)
     float CosT = cosf(Theta);
     float SinT = sinf(Theta);
 
-    fMatrix4 Result = Identity();
+    fMatrix4 Result = fMat4_Identity();
     Result.Entries[0][0] = CosT;
     Result.Entries[0][1] = SinT;
     Result.Entries[1][0] = -SinT;

@@ -10,7 +10,7 @@ macro(thebase_set_option var default type docstring)
     set(${var} ${${var}} CACHE ${type} ${docstring} FORCE)
 endmacro()
 
-project(TheBase C)
+project(TheBase C) # This project is a C project
 
 thebase_set_option(BUILD_GAME_MODULE TRUE BOOL "Do you want to build the Game Module?")
 thebase_set_option(BUILD_RENDERING_MODULE TRUE BOOL "Do you want to build the Rendering Module?")

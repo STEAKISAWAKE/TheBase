@@ -13,7 +13,7 @@ struct _Actor
     void (*OnBeginPlay) ( struct _Actor* self );
     void (*OnUpdate)    ( struct _Actor* self );
     void (*OnDraw)      ( struct _Actor* self );
-    void (*OnEndPlay)   ( struct _Actor* self);
+    void (*OnEndPlay)   ( struct _Actor* self );
     void (*OnDestruct)  ( struct _Actor* self );
 
 };
