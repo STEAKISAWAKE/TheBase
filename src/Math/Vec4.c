@@ -1,4 +1,5 @@
 #include "Vec4.h"
+#include <stdbool.h>
 
 ///IVECTOR2///
 iVector4 iVec4_Add(iVector4 first, iVector4 second)
@@ -71,7 +72,14 @@ bool iVec4_isEqual(iVector4 first, iVector4 second)
 
 fVector4 iVec4_toFVec4(iVector4 first)
 {
-    return {(float)first.x, (float)first.y, (float)first.z, (float)first.w};
+    fVector4 ret;
+
+    ret.x = (float)first.x;
+    ret.y = (float)first.y;
+    ret.z = (float)first.z;
+    ret.w = (float)first.w;
+
+    return ret;
 }
 
 
@@ -143,5 +151,12 @@ bool fVec4_isEqual(fVector4 first, fVector4 second)
 
 iVector4 fVec4_toIVec4(fVector4 first)
 {
-    return {(int)first.x, (int)first.y, (int)first.z, (int)first.w};
+    iVector4 ret;
+
+    ret.x = (float)first.x;
+    ret.y = (float)first.y;
+    ret.z = (float)first.z;
+    ret.w = (float)first.w;
+
+    return ret;
 }

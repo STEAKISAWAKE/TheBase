@@ -1,7 +1,16 @@
 #ifndef VEC2_H_INCLUDED
 #define VEC2_H_INCLUDED
 
-#include <stdbool.h>
+#ifdef __cplusplus
+extern "C"
+{
+    #include <stdbool.h>
+}
+#else
+
+    #include <stdbool.h>
+
+#endif
 
 //Intiger Vector2
 typedef struct iVector2_

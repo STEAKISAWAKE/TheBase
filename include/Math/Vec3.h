@@ -1,7 +1,16 @@
 #ifndef VEC3_H_INCLUDED
 #define VEC3_H_INCLUDED
 
+#ifdef __cplusplus
+extern "C"
+{
 #include <stdbool.h>
+}
+#else
+
+#include <stdbool.h>
+
+#endif
 
 //Intiger Vector2
 typedef struct iVector3_

@@ -2,7 +2,7 @@
 
 
 ///IVECTOR2///
-iVector2 iVec2::Add(iVector2 first, iVector2 second)
+iVector2 iVec2_Add(iVector2 first, iVector2 second)
 {
 
     iVector2 out;
@@ -14,7 +14,7 @@ iVector2 iVec2::Add(iVector2 first, iVector2 second)
 
 }
 
-iVector2 iVec2::Sub(iVector2 first, iVector2 second)
+iVector2 iVec2_Sub(iVector2 first, iVector2 second)
 {
 
     iVector2 out;
@@ -26,7 +26,7 @@ iVector2 iVec2::Sub(iVector2 first, iVector2 second)
 
 }
 
-iVector2 iVec2::Mul(iVector2 first, iVector2 second)
+iVector2 iVec2_Mul(iVector2 first, iVector2 second)
 {
 
     iVector2 out;
@@ -38,7 +38,7 @@ iVector2 iVec2::Mul(iVector2 first, iVector2 second)
 
 }
 
-iVector2 iVec2::Div(iVector2 first, iVector2 second)
+iVector2 iVec2_Div(iVector2 first, iVector2 second)
 {
 
     iVector2 out;
@@ -50,7 +50,7 @@ iVector2 iVec2::Div(iVector2 first, iVector2 second)
 
 }
 
-bool iVec2::isEqual(iVector2 first, iVector2 second)
+bool iVec2_isEqual(iVector2 first, iVector2 second)
 {
 
     if(first.x == second.x && first.y == second.y)
@@ -62,16 +62,21 @@ bool iVec2::isEqual(iVector2 first, iVector2 second)
 
 }
 
-fVector2 iVec2::toFVec2(iVector2 first)
+fVector2 iVec2_toFVec2(iVector2 first)
 {
-    return {(float)first.x, (float)first.y};
+    fVector2 ret;
+
+    ret.x = (float)first.x;
+    ret.y = (float)first.y;
+
+    return ret;
 }
 
 
 
 ///FVECTOR2///
 
-fVector2 fVec2::Add(fVector2 first, fVector2 second)
+fVector2 fVec2_Add(fVector2 first, fVector2 second)
 {
     fVector2 out;
 
@@ -81,7 +86,7 @@ fVector2 fVec2::Add(fVector2 first, fVector2 second)
     return out;
 }
 
-fVector2 fVec2::Sub(fVector2 first, fVector2 second)
+fVector2 fVec2_Sub(fVector2 first, fVector2 second)
 {
     fVector2 out;
 
@@ -91,7 +96,7 @@ fVector2 fVec2::Sub(fVector2 first, fVector2 second)
     return out;
 }
 
-fVector2 fVec2::Mul(fVector2 first, fVector2 second)
+fVector2 fVec2_Mul(fVector2 first, fVector2 second)
 {
     fVector2 out;
 
@@ -101,7 +106,7 @@ fVector2 fVec2::Mul(fVector2 first, fVector2 second)
     return out;
 }
 
-fVector2 fVec2::Div(fVector2 first, fVector2 second)
+fVector2 fVec2_Div(fVector2 first, fVector2 second)
 {
     fVector2 out;
 
@@ -110,7 +115,7 @@ fVector2 fVec2::Div(fVector2 first, fVector2 second)
 
     return out;
 }
-bool fVec2::isEqual(fVector2 first, fVector2 second)
+bool fVec2_isEqual(fVector2 first, fVector2 second)
 {
 
     if(first.x == second.x && first.y == second.y)
@@ -121,7 +126,12 @@ bool fVec2::isEqual(fVector2 first, fVector2 second)
     return false;
 }
 
-iVector2 fVec2::toIVec2(fVector2 first)
+iVector2 fVec2_toIVec2(fVector2 first)
 {
-    return {(int)first.x, (int)first.y};
+    iVector2 ret;
+
+    ret.x = (int)first.x;
+    ret.y = (int)first.y;
+
+    return ret;
 }
