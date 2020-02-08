@@ -24,7 +24,7 @@ Features:
   * Audio Module, Plays audio and music/sound effects. The module will play MP3, WAV, and OGG files.
   * Neworking Module, It will allow for communications between clients and servers using TCP and UDP
 
-  Using CMake you can eaither use the Game Engine, Rendering Engine or both.
+  Using CMake you can eaither use the Game Module, Rendering Module or both.
   
 ## Git Branches
 
