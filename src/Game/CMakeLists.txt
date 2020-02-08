@@ -10,3 +10,5 @@ target_include_directories(Game
 	${PROJECT_SOURCE_DIR}/include/Game/Actors
 	${PROJECT_SOURCE_DIR}/include/Game/Utils
 )
+
+target_link_libraries(Game Math)

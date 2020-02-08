@@ -1,6 +1,8 @@
 #include "Mat4.h"
 
 #include <math.h>
+#include <stdio.h>
+#include <string.h>
 
 //Returns a basic fMat4 with these settings
 fMatrix4 fMat4_Init(fVector3 pos, fVector3 rot, fVector3 scl)
@@ -325,7 +327,7 @@ fMatrix4 fMat4_Mul(fMatrix4 Left, fMatrix4 Right)
 
 fMatrix4 fMat4_MulVector4(fMatrix4 Left, fVector4 Right)
 {
-    fMatrix4 Result;
+    fMatrix4 Result = fMat4_Identity();
 
     for(unsigned int i = 0; i < 4; i++)
     {
@@ -333,22 +335,22 @@ fMatrix4 fMat4_MulVector4(fMatrix4 Left, fVector4 Right)
         {
             if(i == 1)
             {
-                Left.Entries[i][i2] = Left.Entries[i][i2] * Right.x;
+                Result.Entries[i][i2] = Left.Entries[i][i2] * Right.x;
             }
 
             if(i == 2)
             {
-                Left.Entries[i][i2] = Left.Entries[i][i2] * Right.y;
+                Result.Entries[i][i2] = Left.Entries[i][i2] * Right.y;
             }
 
             if(i == 3)
             {
-                Left.Entries[i][i2] = Left.Entries[i][i2] * Right.z;
+                Result.Entries[i][i2] = Left.Entries[i][i2] * Right.z;
             }
 
             if(i == 4)
             {
-                Left.Entries[i][i2] = Left.Entries[i][i2] * Right.w;
+                Result.Entries[i][i2] = Left.Entries[i][i2] * Right.w;
             }
         }
     }
@@ -369,3 +371,22 @@ fMatrix4 fMat4_MulFloat(float Left, fMatrix4 Right)
     return Result;
 }
 
+char* fMat4_ToString(fMatrix4 mat, char* inputStr)
+{
+
+    for (size_t i = 0; i < 4; i++)
+    {
+        for (size_t i2 = 0; i2 < 4; i2++)
+        {
+            char buffer[12];
+            snprintf(buffer, 12, "%.6f", mat.Entries[i][i2]);
+
+            strcat(buffer, " ");
+            strcat(inputStr, buffer);
+
+        }
+    }
+
+
+    return inputStr;
+}

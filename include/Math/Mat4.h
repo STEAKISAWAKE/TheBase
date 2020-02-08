@@ -41,6 +41,8 @@ typedef struct fMatrix4_
     //Returns a basic fMat4 with these settings
     fMatrix4 fMat4_Init(fVector3 pos, fVector3 rot, fVector3 scl);
 
+    char* fMat4_ToString(fMatrix4, char*);
+
 
 
 
