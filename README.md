@@ -22,6 +22,7 @@ Features:
 
  ### Soon To Come Modules
   * Audio Module, Plays audio and music/sound effects. The module will play MP3, WAV, and OGG files.
+  * Physics Module, Allows for gravity and collision simulation along with raycasting.
   * Neworking Module, It will allow for communications between clients and servers using TCP and UDP
 
   Using CMake you can eaither use the Game Module, Rendering Module or both.
