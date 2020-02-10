@@ -20,7 +20,7 @@ int main()
 
     fMatrix4 fMat4_Identity();
 
-	fMatrix4 TestMat = fMat4_Init( (fVector3) { 0.5f, 5.0f, 60.0f }, (fVector3) { 0.0f, 0.0f, 0.0f }, (fVector3) {1.0f, 1.0f, 1.0f} );
+	fMatrix4 TestMat = fMat4_Init((fVector3) { 0.5f, 5.0f, 60.0f }, (fVector3) { 0.0f, 0.0f, 0.0f }, (fVector3) { 1.0f, 1.0f, 1.0f });
 	fMatrix4 TestMat2 = fMat4_Init((fVector3) { 0.5f, 5.0f, 60.0f }, (fVector3) { 0.0f, 0.0f, 0.0f }, (fVector3) { 1.0f, 1.0f, 1.0f });
 
 	

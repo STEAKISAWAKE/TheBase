@@ -371,6 +371,8 @@ fMatrix4 fMat4_MulFloat(float Left, fMatrix4 Right)
     return Result;
 }
 
+
+//TODO - Extremely janky code and only works on some systems need fixing
 char* fMat4_ToString(fMatrix4 mat, char* inputStr)
 {
 
@@ -378,8 +380,8 @@ char* fMat4_ToString(fMatrix4 mat, char* inputStr)
     {
         for (size_t i2 = 0; i2 < 4; i2++)
         {
-            char buffer[12];
-            snprintf(buffer, 12, "%.6f", mat.Entries[i][i2]);
+            char buffer[20];
+            snprintf(buffer, 20, "%.6f", mat.Entries[i][i2]);
 
             strcat(buffer, " ");
             strcat(inputStr, buffer);

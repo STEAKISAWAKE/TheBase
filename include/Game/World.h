@@ -5,6 +5,23 @@
 
 struct _Actor;
 
+//Not tested
+#define CreateActor(Type, CurWorld, OnConstructFunc, OnBeginPlayFunc, OnUpdateFunc, OnEndPlayFunc, OnDestructFunc) {      \
+    Type* newActor = new Type;                        \
+    newActor->Base->OnConstruct = OnConstructFunc;    \
+    newActor->Base->OnBeginPlay = OnBeginPlayFunc;    \
+    newActor->Base->OnUpdate = OnUpdateFunc;          \
+    newActor->Base->OnEndPlay = OnEndPlayFunc;        \
+    newActor->Base->OnDestruct = OnDestructFunc;      \
+                                                      \
+    newActor->Base->World = CurWorld;                 \
+    newActor->Base->OnConstruct();                    \
+    newActor;                                         \
+}
+
+
+
+
 struct _World
 {
     int WorldID;

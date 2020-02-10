@@ -1,10 +1,6 @@
 #ifndef RENDER_H_INCLUDED
 #define RENDER_H_INCLUDED
 
-#include <Mesh.h>
-
-#define USING_DIRECTX
-
 #ifdef PLATFORM_WINDOWS
     #ifdef USING_VULKAN
         #include <VulkanIncludes>
@@ -24,22 +20,20 @@
 
 
 
-// To add different Rendering API's to the engine
-// add a new enum element and then make a new file which includes the file
-// The rendering API also determines which kind of window is being created
+// The rendering API determines which kind of window is being created
 enum RenderAPI
 {
     OpenGL = 0,
     Vulkan = 1
 }
 
-typedef struct _Render
+struct _Render
 {
     RenderAPI CurrentAPI;
     void* Context;
-} Render;
+};
 
-void Init(Render&, RenderAPI);
+void Init(Render&);
 void RenderMesh(Mesh*);
 
 #endif // RENDER_H_INCLUDED

@@ -12,3 +12,7 @@ target_include_directories(Game
 )
 
 target_link_libraries(Game Math)
+
+if(BUILD_RENDERING_MODULE)
+	target_link_libraries(Game Rendering)
+endif()
