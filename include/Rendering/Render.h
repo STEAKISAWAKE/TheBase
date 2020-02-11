@@ -21,11 +21,11 @@
 
 
 // The rendering API determines which kind of window is being created
-enum RenderAPI
+typedef enum _RenderAPI
 {
     OpenGL = 0,
     Vulkan = 1
-}
+} RenderAPI;
 
 struct _Render
 {
@@ -33,7 +33,9 @@ struct _Render
     void* Context;
 };
 
-void Init(Render&);
-void RenderMesh(Mesh*);
+typedef struct _Render Render;
+
+void Init(Render*);
+void RenderMesh();
 
 #endif // RENDER_H_INCLUDED

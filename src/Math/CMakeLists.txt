@@ -9,3 +9,6 @@ target_include_directories(Math
     PRIVATE
         ${PROJECT_SOURCE_DIR}/include/Math
 )
+
+target_link_libraries(Math m)
+

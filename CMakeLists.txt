@@ -12,6 +12,12 @@ endmacro()
 
 project(TheBase C) # This project is a C project
 
+#if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+	#target_link_libraries(TheBase m)
+#endif()
+
+set(LIB_DIR "${CMAKE_CURRENT_SOURCE_DIR}/libraries/")
+
 thebase_set_option(BUILD_GAME_MODULE TRUE BOOL "Do you want to build the Game Module?")
 thebase_set_option(BUILD_RENDERING_MODULE TRUE BOOL "Do you want to build the Rendering Module?")
 thebase_set_option(BUILD_EXAMPLE_EXECUTABLES TRUE BOOL "Do you want to build the Example Executables?")

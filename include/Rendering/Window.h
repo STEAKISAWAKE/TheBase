@@ -1,6 +1,8 @@
 #ifndef WINDOW_H_INCLUDED
 #define WINDOW_H_INCLUDED
 
-bool CreateWindow();
+#include <stdbool.h>
+
+bool CreateWindow(char*);
 
 #endif // WINDOW_H_INCLUDED
