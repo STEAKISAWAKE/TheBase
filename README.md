@@ -8,6 +8,15 @@ Features:
 * Ease-of-Use (Functions are worded with easy to understand names)
 * Differentiated Modules (Only need a renderer? Take the rendering module. Already have a rending engine? Take our game engine.)
 
+## Building
+ When cloning from github make sure you clone recursively since glfw is built with the rendering module.
+ ~~~ 
+ git clone https://github.com/STEAKISAWAKE/TheBase --recursive 
+ ~~~
+ Then use CMake to generate project files for which system you are on.
+ Then build the code using the generated files.
+ 
+
 ## Different Modules
 
  ### Math Module
