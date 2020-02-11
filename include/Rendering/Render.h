@@ -2,6 +2,8 @@
 #define RENDER_H_INCLUDED
 
 #ifdef PLATFORM_WINDOWS
+    #include <Windows.h>
+
     #ifdef USING_VULKAN
         #include <VulkanIncludes>
     #else
@@ -18,6 +20,8 @@
     #endif
 #endif // PLATFORM_LINUX
 
+#include <Window.h>
+
 
 
 // The rendering API determines which kind of window is being created
@@ -31,11 +35,14 @@ struct _Render
 {
     RenderAPI CurrentAPI;
     void* Context;
+
+    Window* window;
 };
 
 typedef struct _Render Render;
 
-void Init(Render*);
-void RenderMesh();
+void Render_Init(Render*);
+void Render_UpdateWindow(Render*);
+void Render_Shutdown(Render*);
 
 #endif // RENDER_H_INCLUDED

@@ -10,5 +10,6 @@ target_include_directories(Math
         ${PROJECT_SOURCE_DIR}/include/Math
 )
 
-target_link_libraries(Math m)
-
+if(UNIX)
+	target_link_libraries(Math m)
+endif()

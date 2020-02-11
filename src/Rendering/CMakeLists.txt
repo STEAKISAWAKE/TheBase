@@ -4,6 +4,11 @@ add_library(Rendering STATIC
 	OpenGLRender.c
 )
 
+if(WIN32)
+	target_compile_definitions(Rendering PUBLIC PLATFORM_WINDOWS)
+elseif(UNIX)
+	target_compile_definitions(Rendering PUBLIC PLATFORM_UNIX)
+endif()
 
 
 target_include_directories(Rendering
@@ -12,6 +17,10 @@ target_include_directories(Rendering
 )
 
 target_link_libraries(Rendering Math)
+
+if(MSVC)
+	target_link_libraries(Rendering opengl32)
+endif()
 
 set(GLFW_DIR "${LIB_DIR}glfw")
 add_subdirectory(${GLFW_DIR} "${GLFW_DIR}/build")
