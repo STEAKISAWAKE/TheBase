@@ -14,7 +14,7 @@ struct _Window
 
 typedef struct _Window Window;
 
-Window* CreateRenderWindow(int, int, const char*, bool fullscreen); // Opens a window
-void DestroyRenderWindow(Window*); // Closes a window and destroys the pointer
+void Window_Create(Window*, int, int, const char*, bool fullscreen); // Opens a window
+void Window_Destroy(Window*); // Closes a window and destroys the pointer
 
 #endif // WINDOW_H_INCLUDED

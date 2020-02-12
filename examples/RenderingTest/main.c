@@ -10,9 +10,12 @@ int main()
 
 	Render main;
 
-	Render_Init(&main);
+	if(!Render_Init(&main))
+	{
+		return 1;
+	}
 	
-	while (!glfwWindowShouldClose(main.window->win))
+	while (!glfwWindowShouldClose(main.window.win))
 	{
 
 		Render_UpdateWindow(&main);

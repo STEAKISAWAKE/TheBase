@@ -1,9 +1,11 @@
 #ifndef OPENGLRENDER_H_INCLUDED
 #define OPENGLRENDER_H_INCLUDED
 
-//#include <glad/glad.h>
+struct Render;
 
-void OpenGLInit(void* Context);
+void OpenGLInit();
+
+//void Render_OpenGL_DrawMesh(Render*);
 
 void OpenGLRenderMesh();
 

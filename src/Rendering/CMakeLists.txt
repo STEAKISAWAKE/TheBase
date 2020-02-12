@@ -4,8 +4,8 @@ add_library(Rendering STATIC
 	OpenGLRender.c
 )
 
-if(WIN32)
-	target_compile_definitions(Rendering PUBLIC PLATFORM_WINDOWS)
+if(WIN32)				
+	target_compile_definitions(Rende1ring PUBLIC PLATFORM_WINDOWS)
 elseif(UNIX)
 	target_compile_definitions(Rendering PUBLIC PLATFORM_UNIX)
 endif()
@@ -20,15 +20,18 @@ target_link_libraries(Rendering Math)
 
 if(MSVC)
 	target_link_libraries(Rendering opengl32)
+elseif(UNIX)
+	target_link_libraries(Rendering GL)
 endif()
 
 set(GLFW_DIR "${LIB_DIR}glfw")
+set(GLAD_DIR "${LIB_DIR}glad")
+
 add_subdirectory(${GLFW_DIR} "${GLFW_DIR}/build")
 
 target_link_libraries(Rendering "glfw" "${GLFW_LIBRARIES}")
 target_link_libraries(Rendering "glad" "${CMAKE_DL_LIBS}")
 
-set(GLAD_DIR "${LIB_DIR}glad")
 
 target_include_directories(Rendering PRIVATE "${GLFW_DIR}/include")
 target_include_directories(Rendering PRIVATE "${GLAD_DIR}/include")

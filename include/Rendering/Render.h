@@ -18,7 +18,7 @@
     #else
         #include <OpenGLRender.h>
     #endif
-#endif // PLATFORM_LINUX
+#endif // PLATFORM_UNIX
 
 #include <Window.h>
 
@@ -36,12 +36,12 @@ struct _Render
     RenderAPI CurrentAPI;
     void* Context;
 
-    Window* window;
+    Window window;
 };
 
 typedef struct _Render Render;
 
-void Render_Init(Render*);
+bool Render_Init(Render*);
 void Render_UpdateWindow(Render*);
 void Render_Shutdown(Render*);
 
