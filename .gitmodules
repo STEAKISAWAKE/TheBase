@@ -1,3 +1,6 @@
 [submodule "libraries/glfw"]
 	path = libraries/glfw
 	url = https://github.com/glfw/glfw.git
+[submodule "libraries/freetype"]
+	path = libraries/freetype
+	url = https://github.com/aseprite/freetype2
