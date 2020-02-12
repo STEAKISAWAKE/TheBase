@@ -28,6 +28,7 @@ bool Render_Init(Render* curRender)
 void Render_UpdateWindow(Render* curRender)
 {
 	glClearColor(1.0f, 0.0f, 0.0f, 1.0f);	
+	glClear(GL_COLOR_BUFFER_BIT);
 
 	glfwSwapBuffers(curRender->window.win);
 	glfwPollEvents();

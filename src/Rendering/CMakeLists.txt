@@ -5,7 +5,7 @@ add_library(Rendering STATIC
 )
 
 if(WIN32)				
-	target_compile_definitions(Rende1ring PUBLIC PLATFORM_WINDOWS)
+	target_compile_definitions(Rendering PUBLIC PLATFORM_WINDOWS)
 elseif(UNIX)
 	target_compile_definitions(Rendering PUBLIC PLATFORM_UNIX)
 endif()
