@@ -26,15 +26,22 @@ endif()
 
 set(GLFW_DIR "${LIB_DIR}glfw")
 set(GLAD_DIR "${LIB_DIR}glad")
+set(FREETYPE_DIR "${LIB_DIR}freetype")
 
 add_subdirectory(${GLFW_DIR} "${GLFW_DIR}/build")
 
+add_subdirectory(${FREETYPE_DIR} "${FREETYPE_DIR}/build")
+
+
 target_link_libraries(Rendering "glfw" "${GLFW_LIBRARIES}")
+target_link_libraries(Rendering "freetype" "${FREETYPE_LIBRARIES}")
 target_link_libraries(Rendering "glad" "${CMAKE_DL_LIBS}")
 
 
 target_include_directories(Rendering PRIVATE "${GLFW_DIR}/include")
 target_include_directories(Rendering PRIVATE "${GLAD_DIR}/include")
+target_include_directories(Rendering PRIVATE "${FREETYPE_DIR}/include")
+
  
 
 target_compile_definitions(Rendering PRIVATE "GLFW_INCLUDE_NONE")
