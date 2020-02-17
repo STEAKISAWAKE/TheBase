@@ -1,10 +1,10 @@
-#ifndef OPENGLRENDER_H_INCLUDED
-#define OPENGLRENDER_H_INCLUDED
+#include "OpenGLRender.h"
 
 #include <glad/glad.h>
 
-void OpenGLInit();
+#include "Render.h"
 
-void OpenGLRenderMesh();
-
-#endif // OPENGLRENDER_H_INCLUDED
+bool Render_OpenGL_Init(struct _Render* curRender)
+{
+	return true;
+}

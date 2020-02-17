@@ -13,7 +13,6 @@ endmacro()
 project(TheBase C) # This project is a C project
 
 
-
 #if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
 	#target_link_libraries(TheBase m)
 #endif()
@@ -23,6 +22,12 @@ set(LIB_DIR "${CMAKE_CURRENT_SOURCE_DIR}/libraries/")
 thebase_set_option(BUILD_GAME_MODULE TRUE BOOL "Do you want to build the Game Module?")
 thebase_set_option(BUILD_RENDERING_MODULE TRUE BOOL "Do you want to build the Rendering Module?")
 thebase_set_option(BUILD_EXAMPLE_EXECUTABLES TRUE BOOL "Do you want to build the Example Executables?")
+thebase_set_option(USING_VULKAN TRUE BOOL "Do you wan to use Vulkan for rendering?")
+
+set(VULKAN_HEADERS_INSTALL_DIR "HEADERS-NOTFOUND" CACHE PATH "Absolute path to a Vulkan-Headers install directory")
+set(VULKAN_LOADER_INSTALL_DIR "LOADER-NOTFOUND" CACHE PATH "Absolute path to a Vulkan-Loader install directory")
+set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH};${VULKAN_HEADERS_INSTALL_DIR};${VULKAN_LOADER_INSTALL_DIR};
+                       $ENV{VULKAN_HEADERS_INSTALL_DIR};$ENV{VULKAN_LOADER_INSTALL_DIR})
 
 add_subdirectory(src)
 

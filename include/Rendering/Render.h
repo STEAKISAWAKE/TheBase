@@ -1,28 +1,33 @@
 #ifndef RENDER_H_INCLUDED
 #define RENDER_H_INCLUDED
 
+
 #ifdef PLATFORM_WINDOWS
+
     #include <Windows.h>
 
     #ifdef USING_VULKAN
-        #include <VulkanIncludes>
+        #include "VulkanRender.h"
+        #include "OpenGLRender.h"
     #else
-        #include <OpenGLRender.h>
+        #include "OpenGLRender.h"
     #endif
+
 #endif // PLATFORM_WINDOWS
 
 
 #ifdef PLATFORM_UNIX
+
     #ifdef USING_VULKAN
-        #include <VulkanIncludes>
+        #include "VulkanRender.h"
+        #include "OpenGLRender.h"
     #else
-        #include <OpenGLRender.h>
+        #include "OpenGLRender.h"
     #endif
-#endif // PLATFORM_UNIX
+
+#endif // PLATFORM_UNIX 
 
 #include <Window.h>
-
-
 
 // The rendering API determines which kind of window is being created
 typedef enum _RenderAPI

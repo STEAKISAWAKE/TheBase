@@ -1,12 +1,14 @@
 #ifndef OPENGLRENDER_H_INCLUDED
 #define OPENGLRENDER_H_INCLUDED
 
-struct Render;
+#include <stdbool.h>
 
-void OpenGLInit();
+
+
+struct _Render;
+
+bool Render_OpenGL_Init(struct _Render*);
 
 //void Render_OpenGL_DrawMesh(Render*);
-
-void OpenGLRenderMesh();
 
 #endif // OPENGLRENDER_H_INCLUDED
