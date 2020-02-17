@@ -37,9 +37,9 @@ Features:
 
   Using CMake you can eaither use the Game Module, Rendering Module or both.
   
-## Git Branches
+## Git Branches (Not Used Yet)
 
- ### master - Stable
+ ### master - Stable (Only current branch)
   * The master branch is always the latest release code
   * Always the most stable
   * Focus on quality
