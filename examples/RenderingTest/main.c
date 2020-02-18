@@ -18,10 +18,9 @@ int main()
 	while (!glfwWindowShouldClose(main.window.win))
 	{
 
-		Render_UpdateWindow(&main);
+		Render_Update(&main);
 	}
 
 	Render_Shutdown(&main);
 	
-	glfwTerminate();
 }

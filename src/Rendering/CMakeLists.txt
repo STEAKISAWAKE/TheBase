@@ -3,6 +3,7 @@ add_library(Rendering STATIC
 	Window.c
 	Render.c
 	OpenGLRender.c
+	VulkanRender.c
 )
 
 if(WIN32)				

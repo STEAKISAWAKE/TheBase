@@ -11,7 +11,7 @@ bool Render_Init(Render* curRender)
 
 	glfwMakeContextCurrent(curRender->window.win);
 
-#ifdef USING_VULKAN
+#ifdef USING_VULKAN // If using vulkan initalize Vulkan and if it fails initalize opengl
 
 	if (Render_Vulkan_Init(curRender))
 	{
@@ -34,7 +34,7 @@ bool Render_Init(Render* curRender)
 	}
 
 
-#else
+#else // If not using vulkan just initalize opengl
 
 	//Vulkan not being used here.
 
@@ -51,15 +51,7 @@ bool Render_Init(Render* curRender)
 
 #endif
 
-#ifndef USING_VULKAN
 
-	if(!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-	{
-		printf("Error could not initalize GLAD!");
-		glfwTerminate();
-		return false;
-	}
-#endif
 
 	
 
@@ -69,7 +61,7 @@ bool Render_Init(Render* curRender)
 	return true;
 }
 
-void Render_UpdateWindow(Render* curRender)
+void Render_Update(Render* curRender)
 {
 	//glClearColor(0.0f, 0.0f, 0.0f, 1.0f);	
 	//glClear(GL_COLOR_BUFFER_BIT);
@@ -83,5 +75,22 @@ void Render_Shutdown(Render* curRender)
 {
 	Window_Destroy(&curRender->window);
 
+#ifdef USING_VULKAN
+
+	if (curRender->CurrentAPI == APIVulkan)
+	{
+		Render_Vulkan_Shutdown(curRender);
+	}
+	else if (curRender->CurrentAPI == APIOpenGL)
+	{
+		Render_OpenGL_Shutdown(curRender);
+	}
+#elif
+
+
+
+#endif
+
+	glfwTerminate();
 
 }

@@ -4,8 +4,6 @@
 
 #ifdef PLATFORM_WINDOWS
 
-    #include <Windows.h>
-
     #ifdef USING_VULKAN
         #include "VulkanRender.h"
         #include "OpenGLRender.h"
@@ -32,8 +30,8 @@
 // The rendering API determines which kind of window is being created
 typedef enum _RenderAPI
 {
-    OpenGL = 0,
-    Vulkan = 1
+    APIOpenGL = 0,
+    APIVulkan = 1
 } RenderAPI;
 
 struct _Render
@@ -42,12 +40,21 @@ struct _Render
     void* Context;
 
     Window window;
+
+#ifdef USING_VULKAN // Add new variables to the Render struct if vulkan is being used
+    VkInstance   vk_instance;
+    uint32_t     vk_enabled_extension_count;
+    uint32_t     vk_enabled_layer_count;
+    char*        vk_extension_names[64];
+    char*        vk_enabled_layers[64];
+#endif
+
 };
 
 typedef struct _Render Render;
 
 bool Render_Init(Render*);
-void Render_UpdateWindow(Render*);
+void Render_Update(Render*);
 void Render_Shutdown(Render*);
 
 #endif // RENDER_H_INCLUDED
