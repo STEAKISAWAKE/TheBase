@@ -1,11 +1,11 @@
-add_executable( RenderingModuleTest
+add_executable( RenderModuleTest
 	main.c
 )
 
 
-include_directories(${PROJECT_SOURCE_DIR}/include/Rendering)
+include_directories(${PROJECT_SOURCE_DIR}/include/Render)
 
-target_link_libraries(RenderingModuleTest
+target_link_libraries(RenderModuleTest
     PRIVATE 
-        Rendering
+        Render
 )

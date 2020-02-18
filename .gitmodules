@@ -4,3 +4,9 @@
 [submodule "libraries/freetype"]
 	path = libraries/freetype
 	url = https://github.com/aseprite/freetype2
+[submodule "libraries/portaudio"]
+	path = libraries/portaudio
+	url = https://git.assembla.com/portaudio.git
+[submodule "libraries/libsndfile"]
+	path = libraries/libsndfile
+	url = https://github.com/erikd/libsndfile.git

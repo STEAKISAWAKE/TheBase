@@ -1,5 +1,5 @@
 
-add_library(Rendering STATIC
+add_library(Render STATIC
 	Window.c
 	Render.c
 	OpenGLRender.c
@@ -7,22 +7,22 @@ add_library(Rendering STATIC
 )
 
 if(WIN32)				
-	target_compile_definitions(Rendering PUBLIC PLATFORM_WINDOWS)
+	target_compile_definitions(Render PUBLIC PLATFORM_WINDOWS)
 elseif(UNIX)
-	target_compile_definitions(Rendering PUBLIC PLATFORM_UNIX)
+	target_compile_definitions(Render PUBLIC PLATFORM_UNIX)
 endif()
 
 
 if(USING_VULKAN)
-	target_compile_definitions(Rendering PUBLIC "USING_VULKAN")
+	target_compile_definitions(Render PUBLIC "USING_VULKAN")
 endif()
 
-target_include_directories(Rendering
+target_include_directories(Render
     PRIVATE
-    ${PROJECT_SOURCE_DIR}/include/Rendering
+    ${PROJECT_SOURCE_DIR}/include/Render
 )
 
-target_link_libraries(Rendering Math)
+target_link_libraries(Render Math)
 
 set(GLFW_DIR "${LIB_DIR}glfw")
 set(FREETYPE_DIR "${LIB_DIR}freetype")
@@ -31,10 +31,10 @@ set(FREETYPE_DIR "${LIB_DIR}freetype")
 add_subdirectory(${GLFW_DIR} "${GLFW_DIR}/build")
 add_subdirectory(${FREETYPE_DIR} "${FREETYPE_DIR}/build")
 
-target_link_libraries(Rendering "freetype" "${FREETYPE_LIBRARIES}")
+target_link_libraries(Render "freetype" "${FREETYPE_LIBRARIES}")
 
-target_include_directories(Rendering PRIVATE "${GLFW_DIR}/include")
-target_include_directories(Rendering PRIVATE "${FREETYPE_DIR}/include")
+target_include_directories(Render PRIVATE "${GLFW_DIR}/include")
+target_include_directories(Render PRIVATE "${FREETYPE_DIR}/include")
 
 if(USING_VULKAN)
 	find_package(Vulkan REQUIRED)
@@ -47,27 +47,27 @@ if(USING_VULKAN)
 		message("Vulkan was not found and with USING_VULKAN enabled. Disable USING_VULKAN or install the Vulkan SDK. SDK at: https://vulkan.lunarg.com/")
 	endif()
 
-	target_link_libraries(Rendering ${Vulkan_LIBRARY})
-	target_link_libraries(Rendering "glfw" ${GLFW_LIBRARIES} Vulkan::Vulkan)
+	target_link_libraries(Render ${Vulkan_LIBRARY})
+	target_link_libraries(Render "glfw" ${GLFW_LIBRARIES} Vulkan::Vulkan)
 
-	target_include_directories(Rendering PRIVATE "${Vulkan_INCLUDE_DIR}/include")
+	target_include_directories(Render PRIVATE "${Vulkan_INCLUDE_DIR}/include")
 elseif()
 	
-	target_link_libraries(Rendering "glfw" "${GLFW_LIBRARIES}")
+	target_link_libraries(Render "glfw" "${GLFW_LIBRARIES}")
 
 endif()
 
 if(MSVC)
-	target_link_libraries(Rendering opengl32)
+	target_link_libraries(Render opengl32)
 elseif(UNIX)
-	target_link_libraries(Rendering GL)
+	target_link_libraries(Render GL)
 endif()
 
 set(GLAD_DIR "${LIB_DIR}glad")
 	
-target_link_libraries(Rendering "glad" "${CMAKE_DL_LIBS}")
+target_link_libraries(Render "glad" "${CMAKE_DL_LIBS}")
 
-target_include_directories(Rendering PRIVATE "${GLAD_DIR}/include")
+target_include_directories(Render PRIVATE "${GLAD_DIR}/include")
 
 add_library("glad" "${GLAD_DIR}/src/glad.c")
 target_include_directories("glad" PRIVATE "${GLAD_DIR}/include")
@@ -75,7 +75,7 @@ target_include_directories("glad" PRIVATE "${GLAD_DIR}/include")
 
 
 
-target_compile_definitions(Rendering PRIVATE "GLFW_INCLUDE_NONE")
+target_compile_definitions(Render PRIVATE "GLFW_INCLUDE_NONE")
 
 # GLFW
 set(GLFW_BUILD_EXAMPLES OFF CACHE INTERNAL "Build the GLFW example programs" FORCE)

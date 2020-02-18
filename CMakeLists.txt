@@ -20,8 +20,11 @@ project(TheBase C) # This project is a C project
 set(LIB_DIR "${CMAKE_CURRENT_SOURCE_DIR}/libraries/")
 
 thebase_set_option(BUILD_GAME_MODULE TRUE BOOL "Do you want to build the Game Module?")
-thebase_set_option(BUILD_RENDERING_MODULE TRUE BOOL "Do you want to build the Rendering Module?")
+thebase_set_option(BUILD_RENDER_MODULE TRUE BOOL "Do you want to build the Render Module?")
+thebase_set_option(BUILD_AUDIO_MODULE TRUE BOOL "Do you want to build the Audio Module?")
+
 thebase_set_option(BUILD_EXAMPLE_EXECUTABLES TRUE BOOL "Do you want to build the Example Executables?")
+
 thebase_set_option(USING_VULKAN TRUE BOOL "Do you wan to use Vulkan for rendering?")
 
 set(VULKAN_HEADERS_INSTALL_DIR "HEADERS-NOTFOUND" CACHE PATH "Absolute path to a Vulkan-Headers install directory")
