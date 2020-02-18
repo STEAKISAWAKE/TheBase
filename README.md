@@ -30,9 +30,10 @@ Features:
   * Very similar to Unreal Engine 4's type of engine style. I based it off of that idea.
  ### Render Module
   * Used to draw to a window, it creates a window with the proper api (OpenGL, Vulkan). Many rendering functions/objects such as meshes which can be loaded from file.
+ ### Audio Module
+  * Plays audio and music/sound effects.
 
  ### Soon To Come Modules
-  * Audio Module, Plays audio and music/sound effects. The module will play MP3, WAV, and OGG files.
   * Physics Module, Allows for gravity and collision simulation along with raycasting.
   * Neworking Module, It will allow for communications between clients and servers using TCP and UDP
   * Editor Module, It is a editor to make worlds and other parts of your game
