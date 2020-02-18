@@ -2,7 +2,7 @@
 add_subdirectory(Math)
 
 
-if(BUILD_RENDERING_MODULE)
+if(BUILD_RENDER_MODULE)
 	add_subdirectory(Render)
 	target_compile_definitions(Render PUBLIC "BUILD_RENDER_MODULE")
 endif()

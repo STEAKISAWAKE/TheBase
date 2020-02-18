@@ -1,4 +1,4 @@
-cmake_policy(SET CMP0079 NEW) 
+# cmake_policy(SET CMP0079 NEW) 
 
 add_library(Audio STATIC
 	Audio.c
@@ -61,17 +61,9 @@ include_directories(
         ${PA_PUBLIC_INCLUDES}
 )
 
-
 target_link_libraries(
-	Render 
-	${EXTRA_LIBS} 
-)
-
-target_link_libraries(
-	Render 
-	sndfile
-)
-target_link_libraries(
-	Render 
-	portaudio
+        Audio
+        ${EXTRA_LIBS}
+        sndfile
+        portaudio
 )
