@@ -38,6 +38,7 @@ void Audio_LoadFile(const char* file, Sound* data)
 
 void Audio_Play(Sound* data)
 {
+    
     PaError error;
 
     /* Open PaStream with values read from the file */
@@ -65,6 +66,35 @@ void Audio_Play(Sound* data)
 
     return;
 }
+
+void Audio_Pause(Sound* data)
+{
+    PaError error;
+
+   error = Pa_StopStream(data->stream);
+   if(error != paNoError)
+   {
+        fprintf(stderr, "Problem pausing Stream\n");
+        return;
+   }
+
+   return;
+}
+
+void Audio_Remuse(Sound* data)
+{
+   PaError error;
+
+   error = Pa_StartStream(data->stream);
+   if(error != paNoError)
+   {
+        fprintf(stderr, "Problem pausing Stream\n");
+        return;
+   }
+
+   return;
+}
+
 
 void Audio_Stop(Sound* data)
 {

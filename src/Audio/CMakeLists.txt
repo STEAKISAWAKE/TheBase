@@ -44,7 +44,6 @@ if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
             EXTRA_LIBS
             rt
             asound
-            jack
             pthread
     )
 endif (CMAKE_SYSTEM_NAME STREQUAL "Linux")
