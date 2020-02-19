@@ -10,6 +10,7 @@ int main()
 	Audio_Init();
 
 	Sound data;
+
 	Audio_LoadFile("..//..//..//examples//AudioTest//StarWars3.wav", &data);
 
 	Audio_Play(&data);
@@ -19,8 +20,6 @@ int main()
 
 	while (Pa_IsStreamActive(data.stream))
 	{
-
-
 		Pa_Sleep(100);
 	}
 
