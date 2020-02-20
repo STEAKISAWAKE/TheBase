@@ -18,9 +18,17 @@ bool Audio_Init()
     return true;
 }
 
+void Audio_InitSound(Sound* data)
+{
+    data->file = NULL;
+    data->stream = NULL;
+}
+
 void Audio_LoadFile(const char* file, Sound* data)
 {
 
+    if (data->NotInitalized == true)
+        Audio_InitSound(data);
 
     /* Open the soundfile */
     data->file = sf_open(file, SFM_READ, &data->info);
@@ -41,26 +49,33 @@ void Audio_Play(Sound* data)
     
     PaError error;
 
-    /* Open PaStream with values read from the file */
-    error = Pa_OpenDefaultStream(&data->stream
-        , 0                     /* no input */
-        , data->info.channels         /* stereo out */
-        , paFloat32             /* floating point */
-        , data->info.samplerate
-        , FRAMES_PER_BUFFER
-        , callback
-        , data);        /* our sndfile data struct */
-    if (error != paNoError)
+    if (data->NotInitalized == true)
+        Audio_InitSound(data);
+
+    if (data->stream == NULL)
     {
-        fprintf(stderr, "Problem opening Default Stream\n");
-        return;
+
+        /* Open PaStream with values read from the file */
+        error = Pa_OpenDefaultStream(&data->stream
+            , 0                     /* no input */
+            , data->info.channels         /* stereo out */
+            , paFloat32             /* floating point */
+            , data->info.samplerate
+            , FRAMES_PER_BUFFER
+            , callback
+            , data);        /* our sndfile data struct */
+        if (error != paNoError)
+        {
+            fprintf(stderr, "Problem opening Default Stream\n");
+            return;
+        }
     }
 
     /* Start the stream */
     error = Pa_StartStream(data->stream);
     if (error != paNoError)
     {
-        fprintf(stderr, "Problem opening starting Stream\n");
+        fprintf(stderr, "Problem starting Stream\n");
         return;
     }
 
@@ -124,6 +139,17 @@ void Audio_Shutdown()
     }
 }
 
+bool Audio_IsPlaying(Sound* data)
+{
+    if (data->stream != NULL)
+    {
+        return Pa_IsStreamActive(data->stream);
+    }
+    else
+    {
+        return false;
+    }
+}
 
 static
 int

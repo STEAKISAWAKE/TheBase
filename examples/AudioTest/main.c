@@ -11,7 +11,16 @@ int main()
 
 	Sound data;
 
-	Audio_LoadFile("..//..//..//examples//AudioTest//StarWars3.wav", &data);
+	Audio_InitSound(&data);
+
+#ifdef PLATFORM_WINDOWS
+	const char* directory = "..\\..\\..\\examples\\AudioTest\\StarWars3.wav";
+#else
+	const char* directory = "..//..//..//examples//AudioTest//StarWars3.wav";
+#endif
+
+
+	Audio_LoadFile(directory, &data);
 
 	Audio_Play(&data);
 	
@@ -22,6 +31,22 @@ int main()
 	{
 		Pa_Sleep(100);
 	}
+
+	Audio_Stop(&data);
+
+	//Now play two times
+
+	Pa_Sleep(1000);
+
+
+
+	Audio_Play(&data);
+
+	while (Pa_IsStreamActive(data.stream))
+	{
+		Pa_Sleep(100);
+	}
+
 
 	Audio_Stop(&data);
 

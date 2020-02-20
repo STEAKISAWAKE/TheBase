@@ -11,7 +11,11 @@ target_include_directories(Audio
 
 target_link_libraries(Audio Math)
 
-
+if(WIN32)				
+	target_compile_definitions(Audio PUBLIC PLATFORM_WINDOWS)
+elseif(UNIX)
+	target_compile_definitions(Audio PUBLIC PLATFORM_UNIX)
+endif()
 
 set(PORTAUDIO_DIR "${LIB_DIR}portaudio")
 set(LIBSNDFILE_DIR "${LIB_DIR}libsndfile")
