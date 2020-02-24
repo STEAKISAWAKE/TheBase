@@ -23,10 +23,16 @@ target_include_directories(Render
 )
 
 target_link_libraries(Render Math)
+target_link_libraries(Render Utilities)
+
+target_include_directories(Render PRIVATE "${PROJECT_SOURCE_DIR}/include/Math")
+target_include_directories(Render PRIVATE "${PROJECT_SOURCE_DIR}/include/Utilities")
+
 
 set(GLFW_DIR "${LIB_DIR}glfw")
 set(FREETYPE_DIR "${LIB_DIR}freetype")
 
+target_include_directories(Render PRIVATE "${GLFW_DIR}/include")
 
 add_subdirectory(${GLFW_DIR} "${GLFW_DIR}/build")
 add_subdirectory(${FREETYPE_DIR} "${FREETYPE_DIR}/build")

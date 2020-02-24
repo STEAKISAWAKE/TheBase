@@ -1,6 +1,6 @@
 # Always build Math Module first because Rendering and Game Modules use it.
 add_subdirectory(Math)
-
+add_subdirectory(Utilities)
 
 if(BUILD_RENDER_MODULE)
 	add_subdirectory(Render)

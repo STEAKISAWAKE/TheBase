@@ -87,7 +87,10 @@ void Render_Shutdown(Render* curRender)
 	}
 #elif
 
-
+	if(curRender->CurrentAPI == APIOpenGL)
+	{
+		Render_OpenGL_Shutdown(curRender);
+	}
 
 #endif
 
