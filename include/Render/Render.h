@@ -25,7 +25,11 @@
 
 #endif // PLATFORM_UNIX 
 
+#include "../Math/Mat4.h"
+
 #include <Window.h>
+
+struct _Mesh;
 
 // The rendering API determines which kind of window is being created
 typedef enum _RenderAPI
@@ -53,8 +57,12 @@ struct _Render
 
 typedef struct _Render Render;
 
+// Initalization
 bool Render_Init(Render*);
 void Render_Update(Render*);
 void Render_Shutdown(Render*);
+
+// Changing
+void Render_DrawMesh(Render* curRender, _Mesh* mesh, fMatrix4 transform);
 
 #endif // RENDER_H_INCLUDED

@@ -1,0 +1,6 @@
+before_install:
+	sudo apt-get update
+	sudo
+
+language: c
+compiler: gcc
