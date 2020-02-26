@@ -5,10 +5,10 @@ The base code for any project.
 
 Features:
 
-* Functional Programming (The entire codebase is functional)
-* Fast Development (TheBase will speed up development time)
-* Ease-of-Use (Functions are worded with easy to understand names)
-* Differentiated Modules (Only need a renderer? Take the rendering module. Already have a rending engine? Take our game engine.)
+* Functional Programming
+* Fast Development
+* Ease-of-Use
+* Modular Design
 
 ## Building
  When cloning from github make sure you clone recursively since glfw is built with the rendering module.
