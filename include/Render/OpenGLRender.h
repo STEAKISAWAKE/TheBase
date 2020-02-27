@@ -11,6 +11,6 @@ struct _Mesh;
 bool Render_OpenGL_Init(struct _Render*);
 void Render_OpenGL_Shutdown(struct _Render*);
 
-void Render_OpenGL_DrawMesh(struct _Render* curRender, struct _Mesh* mesh, fMatrix4* transform);
+void Render_OpenGL_DrawMesh(struct _Render* curRender, struct _Mesh* mesh, fMatrix4 transform);
 
 #endif // OPENGLRENDER_H_INCLUDED

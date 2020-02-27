@@ -72,4 +72,9 @@ void Render_Vulkan_Shutdown(struct _Render* curRender)
     vkDestroyInstance(curRender->vk_instance, NULL);
 }
 
+void Render_Vulkan_DrawMesh(struct _Render* curRender, struct _Mesh* mesh, fMatrix4 transform)
+{
+
+}
+
 #endif

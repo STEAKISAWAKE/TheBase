@@ -63,6 +63,6 @@ void Render_Update(Render*);
 void Render_Shutdown(Render*);
 
 // Changing
-void Render_DrawMesh(Render* curRender, _Mesh* mesh, fMatrix4 transform);
+void Render_DrawMesh(Render* curRender, struct _Mesh* mesh, fMatrix4 transform);
 
 #endif // RENDER_H_INCLUDED

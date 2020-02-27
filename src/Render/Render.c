@@ -2,6 +2,8 @@
 
 #include <stdio.h>
 
+#include "Mesh.h"
+
 
 bool Render_Init(Render* curRender)
 {
@@ -29,49 +31,6 @@ bool Render_Init(Render* curRender)
 		//TODO: Log error no compatable API
 		break;
 	}
-
-#ifdef USING_VULKAN // If using vulkan initalize Vulkan and if it fails initalize opengl
-
-	if (Render_Vulkan_Init(curRender))
-	{
-		// Debug log that vulkan initalized 
-	}
-	else
-	{
-		// Debug log that vulkan failed
-
-		if (Render_OpenGL_Init(curRender))
-		{
-			 // Debug log opengl initalized instead
-		}
-		else // This code should hopefully never execute
-		{
-			// Debug log that all renderers failed to initalize
-			return false;
-		}
-
-	}
-
-
-#else // If not using vulkan just initalize opengl
-
-	//Vulkan not being used here.
-
-	if (Render_OpenGL_Init(curRender))
-	{
-		// Debug log opengl initalized renderer
-
-	}
-	else // This code should hopefully never execute
-	{
-		// Debug log could not initalize renderer
-		return false;
-	}
-
-#endif
-
-
-
 	
 
 	printf("Initalized!");
@@ -116,7 +75,7 @@ void Render_Shutdown(Render* curRender)
 
 }
 
-void Render_DrawMesh(Render* curRender, _Mesh* mesh, fMatrix4 transform)
+void Render_DrawMesh(Render* curRender, Mesh* mesh, fMatrix4 transform)
 {
 	
 	switch(curRender->CurrentAPI)
