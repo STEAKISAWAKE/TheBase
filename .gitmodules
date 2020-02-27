@@ -10,3 +10,6 @@
 [submodule "libraries/libsndfile"]
 	path = libraries/libsndfile
 	url = https://github.com/erikd/libsndfile.git
+[submodule "libraries/cimgui"]
+	path = libraries/cimgui
+	url = https://github.com/cimgui/cimgui

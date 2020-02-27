@@ -11,13 +11,13 @@ macro(thebase_set_option var default type docstring)
 endmacro()
 
 project(TheBase C) # This project is a C project
-
-
 #if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
 	#target_link_libraries(TheBase m)
 #endif()
 
 set(LIB_DIR "${CMAKE_CURRENT_SOURCE_DIR}/libraries/")
+
+thebase_set_option(APPLICATION_NAME "Untitled Application" STRING "Do you want to be the name of the application?")
 
 thebase_set_option(BUILD_GAME_MODULE TRUE BOOL "Do you want to build the Game Module?")
 thebase_set_option(BUILD_RENDER_MODULE TRUE BOOL "Do you want to build the Render Module?")
